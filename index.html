@@ -19,26 +19,79 @@
 
 <body>
 
-  Bill
+  <header>
+    <img src="./images/logo.svg" alt="logo">
+  </header>
 
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
+  <main>
+    <form class="form">
+      <div class="form__inputs">
+        <fieldset class="form__set">
+          <label for="bill">Bill</label>
+          <div class="form__field">
+            <img src="./images/icon-dollar.svg" alt="dolar sign" class="field__icon">
+            <input type="number" id="bill" placeholder="0" min="0">
+          </div>
+        </fieldset>
+        <fieldset class="form__set">
+          <h2>Select Tip %</h2>
+          <div class="form__tips-selector">
+            <div class="tips-selector__tip">
+              <label for="5" class="tip__label">5%</label>
+              <input type="checkbox" name="tip" id="5" value="5">
+            </div>
+            <div class="tips-selector__tip">
+              <label for="10" class="tip__label">10%</label>
+              <input type="checkbox" name="tip" id="10" value="10">
+            </div>
+            <div class="tips-selector__tip">
+              <label for="15" class="tip__label">15%</label>
+              <input type="checkbox" name="tip" id="15" value="15">
+            </div>
+            <div class="tips-selector__tip">
+              <label for="25" class="tip__label">25%</label>
+              <input type="checkbox" name="tip" id="25" value="25">
+            </div>
+            <div class="tips-selector__tip">
+              <label for="50" class="tip__label">50%</label>
+              <input type="checkbox" name="tip" id="50" value="50">
+            </div>
+            <div class="tips-selector__tip custom-tip">
+              <input type="number" name="tip" id="custom" placeholder="Custom">
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="form__set">
+          <label for="number">Number of People</label>
+          <div class="form__field">
+            <img src="./images/icon-person.svg" alt="person sign" class="field__icon">
+            <input type="number" id="number" placeholder="1" min="1">
+          </div>
+        </fieldset>
+      </div>
+      <div class="form__outputs">
+        <div class="output__row">
+          <div class="row__text">
+            <h4>Tip Amount</h4>
+            <span>/ person</span>
+          </div>
+          <div class="row__num amount">
 
-  Number of People
+          </div>
+        </div>
+        <div class="output__row">
+          <div class="row__text">
+            <h4>Total</h4>
+            <span>/ person</span>
+          </div>
+          <div class="row__num total">
 
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-
+          </div>
+          <button type="reset">Reset</button>
+        </div>
+      </div>
+    </form>
+  </main>
 </body>
 
 </html>
