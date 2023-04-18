@@ -1,15 +1,254 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
 
 :root {
-	--cyan-primary: hsl(172, 67%, 45%);
-	--cyan-dark: hsl(183, 100%, 15%);
-	--cyan-gray: hsl(186, 14%, 43%);
-	--grayish-cyan: hsl(184, 14%, 56%);
-	--grayish-cyan-light: hsl(185, 41%, 84%);
-	--grayish-cyan-lighter: hsl(189, 41%, 97%);
+	--primary: hsl(172, 67%, 45%);
+	--dark: hsl(183, 100%, 15%);
+	--gray: hsl(186, 14%, 43%);
+	--grayish: hsl(184, 14%, 56%);
+	--grayish-light: hsl(185, 41%, 84%);
+	--grayish-lighter: hsl(189, 41%, 97%);
 	--white: hsl(0, 0%, 100%);
+	--red: hsl(0, 100%, 60%);
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	font: inherit;
+}
+
+input,
+textarea,
+output {
+	display: inline;
+	width: 100%;
+	outline: none;
+	border: none;
+}
+
+output {
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+input {
+	-moz-appearance: textfield;
+	appearance: textfield;
+}
+
+button {
+	display: inline-block;
+	outline: none;
+	border: none;
+}
+
+input,
+button {
+	font-size: 1.25rem;
+	padding: 0.5rem 1rem;
 }
 
 body {
 	font-family: 'Space Mono', monospace;
+	font-weight: 700;
+	padding-block: 3rem;
+	background-color: var(--grayish-light);
+	display: grid;
+	align-content: center;
+	justify-items: center;
+	gap: 4rem;
+	min-height: 100vh;
+	min-height: 100dvh;
+}
+
+main {
+	width: 100%;
+	max-width: 60rem;
+}
+
+form {
+	background-color: var(--white);
+	padding: 2rem;
+	border-radius: 1.5rem;
+	display: grid;
+
+	gap: 2rem;
+}
+
+.form__inputs {
+	padding: 1rem;
+	display: grid;
+	gap: 2rem;
+}
+
+.form__set {
+	border: none;
+}
+
+.set__text {
+	display: flex;
+	justify-content: space-between;
+	margin-block-end: 0.5rem;
+}
+
+.set__label {
+	color: var(--gray);
+}
+
+.set__error {
+	color: var(--red);
+	display: none;
+}
+
+.input-wrapper {
+	position: relative;
+}
+
+.input-icon {
+	position: absolute;
+	top: 50%;
+	left: 1rem;
+	transform: translateY(-50%);
+	z-index: 2;
+}
+
+.input-field {
+	background-color: var(--grayish-lighter);
+	text-align: right;
+	border-radius: 0.25rem;
+	color: var(--dark);
+}
+
+.input-field::placeholder {
+	color: var(--grayish);
+}
+
+.input-field:is(:hover, :focus, [aria-selected='true']) {
+	outline: 2px solid var(--primary);
+	outline-offset: -2px;
+	cursor: pointer;
+}
+
+.form__set.invalid .set__error {
+	display: block;
+}
+
+.form__set.invalid .input-field {
+	outline: 2px solid var(--red);
+	outline-offset: -2px;
+}
+
+.tips-wrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
+	gap: 1rem;
+}
+
+.tip {
+	border-radius: 0.25rem;
+	font-size: 1.25rem;
+}
+
+.tip:hover {
+	background-color: var(--grayish-light);
+	color: var(--dark);
+}
+
+.tip[aria-selected='false'] {
+	background-color: var(--dark);
+	color: var(--white);
+}
+
+.tip[aria-selected='true'] {
+	background-color: var(--primary);
+	color: var(--dark);
+}
+
+.custom-tip {
+	text-align: center;
+}
+
+/* 
+	* OUTPUTS
+*/
+
+.form__outputs {
+	background-color: var(--dark);
+	padding: 2rem 1rem 1rem;
+	border-radius: 1rem;
+	display: grid;
+	grid-template-columns: max-content minmax(0, 1fr);
+	align-items: center;
+	gap: 2rem;
+}
+
+.btn {
+	background-color: var(--primary);
+	border-radius: 0.25rem;
+	padding: 0.5rem;
+	text-transform: uppercase;
+	color: var(--dark);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	grid-column: 1/-1;
+}
+.btn:hover {
+	background-color: var(--grayish-light);
+}
+.btn:disabled {
+	opacity: 0.2;
+	pointer-events: none;
+}
+
+.output__row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.row__text {
+	flex-shrink: 0;
+}
+
+.row__text h4 {
+	font-size: 0.9rem;
+	color: var(--grayish-lighter);
+}
+
+.row__text span {
+	font-size: 0.8rem;
+	color: var(--grayish);
+}
+
+.row__num {
+	font-size: 2rem;
+	color: var(--primary);
+	text-align: right;
+	overflow: hidden;
+}
+
+@media (min-width: 50em) {
+	form {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.form__outputs {
+		padding: 3rem 2rem 2rem;
+	}
+
+	.btn {
+		margin-block-start: auto;
+	}
+
+	.row__num {
+		/* font-size: 2.5rem; */
+	}
 }

@@ -24,72 +24,60 @@
   </header>
 
   <main>
-    <form class="form">
-      <div class="form__inputs">
+    <form>
+      <section class="form__inputs">
         <fieldset class="form__set">
-          <label for="bill">Bill</label>
-          <div class="form__field">
-            <img src="./images/icon-dollar.svg" alt="dolar sign" class="field__icon">
-            <input type="number" id="bill" placeholder="0" min="0">
+          <label for="bill" class="set__text">
+            <span class="set__label">Bill</span>
+            <span class="set__error">Can't be zero</span>
+          </label>
+          <div class="input-wrapper">
+            <img src="./images/icon-dollar.svg" alt="dolar sign" class="input-icon">
+            <input type="number" id="bill" placeholder="0" class="input-field">
           </div>
         </fieldset>
         <fieldset class="form__set">
-          <h2>Select Tip %</h2>
-          <div class="form__tips-selector">
-            <div class="tips-selector__tip">
-              <label for="5" class="tip__label">5%</label>
-              <input type="checkbox" name="tip" id="5" value="5">
-            </div>
-            <div class="tips-selector__tip">
-              <label for="10" class="tip__label">10%</label>
-              <input type="checkbox" name="tip" id="10" value="10">
-            </div>
-            <div class="tips-selector__tip">
-              <label for="15" class="tip__label">15%</label>
-              <input type="checkbox" name="tip" id="15" value="15">
-            </div>
-            <div class="tips-selector__tip">
-              <label for="25" class="tip__label">25%</label>
-              <input type="checkbox" name="tip" id="25" value="25">
-            </div>
-            <div class="tips-selector__tip">
-              <label for="50" class="tip__label">50%</label>
-              <input type="checkbox" name="tip" id="50" value="50">
-            </div>
-            <div class="tips-selector__tip custom-tip">
-              <input type="number" name="tip" id="custom" placeholder="Custom">
-            </div>
+          <label for="custom-tip" class="set__text">
+            <span class="set__label">Select Tip %</span>
+          </label>
+          <div class="tips-wrapper">
+            <button class="tip" aria-selected="false" data-value="5" data-id="tip">5%</button>
+            <button class="tip" aria-selected="false" data-value="10" data-id="tip">10%</button>
+            <button class="tip" aria-selected="false" data-value="15" data-id="tip">15%</button>
+            <button class="tip" aria-selected="false" data-value="25" data-id="tip">25%</button>
+            <button class="tip" aria-selected="false" data-value="50" data-id="tip">50%</button>
+            <input type="number" id="custom-tip" class="custom-tip input-field" aria-selected="false" data-id="tip"
+              placeholder="Custom">
           </div>
         </fieldset>
         <fieldset class="form__set">
-          <label for="number">Number of People</label>
-          <div class="form__field">
-            <img src="./images/icon-person.svg" alt="person sign" class="field__icon">
-            <input type="number" id="number" placeholder="1" min="1">
+          <label for="number" class="set__text">
+            <span class="set__label">Number of People</span>
+            <span class="set__error">Can't be zero</span>
+          </label>
+          <div class="input-wrapper">
+            <img src="./images/icon-person.svg" alt="person sign" class="input-icon">
+            <input type="number" id="number" placeholder="1" class="input-field">
           </div>
         </fieldset>
-      </div>
-      <div class="form__outputs">
-        <div class="output__row">
-          <div class="row__text">
-            <h4>Tip Amount</h4>
-            <span>/ person</span>
-          </div>
-          <div class="row__num amount">
+      </section>
+      <section class="form__outputs">
 
-          </div>
+        <div class="row__text">
+          <h4>Tip Amount</h4>
+          <span>/ person</span>
         </div>
-        <div class="output__row">
-          <div class="row__text">
-            <h4>Total</h4>
-            <span>/ person</span>
-          </div>
-          <div class="row__num total">
+        <output class="row__num" data-output="amount">$0.00</output>
 
-          </div>
-          <button type="reset">Reset</button>
+        <div class="row__text">
+          <h4>Total</h4>
+          <span>/ person</span>
         </div>
-      </div>
+        <output class="row__num" data-output="total">$0.00</output>
+
+        <button type="reset" class="btn" id="reset" disabled>Reset</button>
+
+      </section>
     </form>
   </main>
 </body>
